@@ -42,4 +42,4 @@ gsutil cp -r gs://streetphotos/data .
 4. Start docker tf container
 5. Log into container
 6. Start tensorboard
-7. Open Jupyter and start the process
+7. Open Jupyter and start the training process
