@@ -1,5 +1,5 @@
-## Retraining 2
-Lowered the training rate, added image distortions.
+## Retraining 3
+Raised the training rate from 0.0001 to 0.001, increased training to 1000 epochs.
 
 Parameters:
 ```
@@ -8,11 +8,11 @@ bottleneck_dir='/tmp/bottleneck',
 eval_step_interval=100,
 final_tensor_name='final_result', 
 flip_left_right=True, 
-how_many_training_steps=600,
+how_many_training_steps=1000,
 image_dir='data/', 
 intermediate_output_graphs_dir='/tmp/intermediate_graph/', 
 intermediate_store_frequency=0,
-learning_rate=0.0001, model_dir='/tmp/imagenet', 
+learning_rate=0.001, model_dir='/tmp/imagenet', 
 output_graph='/tmp/output_graph.pb',
 output_labels='/tmp/output_labels.txt', 
 print_misclassified_test_images=False, 
@@ -29,11 +29,11 @@ validation_percentage=10
 ```
 
 Conclusions: 
-1. Training time improved greatly (from 5 minutes to 40 minutes) - with distortions can't take advantage of bottleneck caching
-2. Model no longer overfits, but it converges more slowly
-3. Should try with higher training rate
-4. Should train for longer
+1. Train accuracy is 94%
+2. Validation accuracy is 89%
+3. 1000 epochs of training took 1 hour on laptop cpu inside a docker container
+4. Could train for longer, the model doesn't overfit the data
 
-![alt text](ret2.png "Retrain 2 results")
+![alt text](ret3.png "Retrain 3 results")
 
 

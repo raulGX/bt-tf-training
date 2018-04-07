@@ -19,3 +19,13 @@ After running it the first time, to restart de container:
 ```
 docker start tf
 ```
+
+## How to use te Jupyter notebook
+1. Copy your data into notebooks/data folder inside this repo (every class should be in separate folders ex: Cats, Dogs, etc.)
+
+2. Open browser after you start the docker container (cpu/gpu) [here](http://localhost:8888/notebooks/train.ipynb#):
+3. Optional: run the following commands to start tensorboard inside the container (logs and debugging)
+```
+sudo docker exec -it tf bash
+tensorboard --logdir=/tmp/retrain_logs
+```
