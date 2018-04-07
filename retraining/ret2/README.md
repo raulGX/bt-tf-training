@@ -32,6 +32,7 @@ Conclusions:
 1. Training time improved greatly (from 5 minutes to 1 hour) - with distortions can't take advantage of bottleneck caching
 2. Model no longer overfits, but it converges more slowly
 3. Should try with higher training rate
+4. Should train for longer
 
 ![alt text](ret2.png "Retrain 2 results")
 
