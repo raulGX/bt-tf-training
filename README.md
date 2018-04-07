@@ -29,3 +29,17 @@ docker start tf
 sudo docker exec -it tf bash
 tensorboard --logdir=/tmp/retrain_logs
 ```
+
+## Google cloud
+1. Create an instance with ubuntu 16
+2. Install docker
+3. Clone repo
+4. Copy data
+```
+inside ~/bt-tf-training/notebooks
+gsutil cp -r gs://streetphotos/data .
+```
+4. Start docker tf container
+5. Log into container
+6. Start tensorboard
+7. Open Jupyter and start the process
