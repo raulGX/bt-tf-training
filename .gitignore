@@ -152,3 +152,6 @@ fabric.properties
 
 
 notebooks/data
+notebooks/images
+download-dataset/downloads
+**/*.DS_Store

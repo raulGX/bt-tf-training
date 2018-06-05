@@ -30,6 +30,14 @@ sudo docker exec -it tf bash
 tensorboard --logdir=/tmp/retrain_logs
 ```
 
+## Gsutils 
+Install using:
+```
+curl https://sdk.cloud.google.com | bash
+exec -l $SHELL
+```
+
+
 ## Google cloud
 1. Create an instance with ubuntu 16
 2. Install docker
@@ -43,3 +51,21 @@ gsutil cp -r gs://streetphotos/data .
 5. Log into container
 6. Start tensorboard
 7. Open Jupyter and start the training process
+
+
+## Google cloud using tf containers
+1. Create containers with tensorboard jupyter tags
+2. Connect to the command line of the container, example:
+```
+gcloud compute --project "bt-train" ssh --zone "europe-west1-b" "tf-cpu-container"
+```
+3. Download the github repo, example:
+```
+curl -L -o master.zip https://github.com/raulGX/bt-tf-training/archive/master.zip
+```
+4. Add the contents of repo/notebooks to the /notebooks directory
+5. Log into jupyter by using the token:
+```
+jupyter notebook list
+```
+6. Download the data from google storage

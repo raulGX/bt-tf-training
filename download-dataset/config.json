@@ -1,0 +1,20 @@
+{
+  "defaultImageCount": 10,
+  "labels": [
+    {
+      "name": "person",
+      "suffix": [
+        "pedestrian"
+      ]
+    },
+    {
+      "name": "car"
+    },
+    {
+      "name": "bicycle",
+      "suffix": [
+        "street"
+      ]
+    }
+  ]
+}
