@@ -1108,3 +1108,45 @@ def run_bottleneck_on_image(sess, image_data, image_data_tensor,
                                  {resized_input_tensor: resized_input_values})
     bottleneck_values = np.squeeze(bottleneck_values)
     return bottleneck_values
+
+
+def run_final_eval(sess, model_info, class_count, image_lists, jpeg_data_tensor,
+                   decoded_image_tensor, resized_image_tensor,
+                   bottleneck_tensor):
+    """Runs a final evaluation on an eval graph using the test data set.
+
+    Args:
+      sess: Session for the train graph.
+      model_info: Model info dictionary from create_model_info()
+      class_count: Number of classes
+      image_lists: Dictionary of training images for each label.
+      jpeg_data_tensor: The layer to feed jpeg image data into.
+      decoded_image_tensor: The output of decoding and resizing the image.
+      resized_image_tensor: The input node of the recognition graph.
+      bottleneck_tensor: The bottleneck output layer of the CNN graph.
+    """
+    test_bottlenecks, test_ground_truth, test_filenames = (
+        get_random_cached_bottlenecks(sess, image_lists, FLAGS.test_batch_size,
+                                      'testing', FLAGS.bottleneck_dir,
+                                      FLAGS.image_dir, jpeg_data_tensor,
+                                      decoded_image_tensor, resized_image_tensor,
+                                      bottleneck_tensor, FLAGS.architecture))
+
+    (sess, bottleneck_input, ground_truth_input, evaluation_step,
+     prediction) = build_eval_session(model_info, class_count)
+
+    test_accuracy, predictions = sess.run(
+        [evaluation_step, prediction],
+        feed_dict={
+            bottleneck_input: test_bottlenecks,
+            ground_truth_input: test_ground_truth
+        })
+    tf.logging.info('Final test accuracy = %.1f%% (N=%d)' %
+                    (test_accuracy * 100, len(test_bottlenecks)))
+
+    if FLAGS.print_misclassified_test_images:
+        tf.logging.info('=== MISCLASSIFIED TEST IMAGES ===')
+        for i, test_filename in enumerate(test_filenames):
+            if predictions[i] != test_ground_truth[i]:
+                tf.logging.info('%70s  %s' % (test_filename,
+                                              list(image_lists.keys())[predictions[i]]))
