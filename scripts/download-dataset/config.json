@@ -1,5 +1,5 @@
 {
-  "defaultImageCount": 10,
+  "defaultImageCount": 30,
   "labels": [
     {
       "name": "person",
@@ -12,6 +12,12 @@
     },
     {
       "name": "bicycle",
+      "suffix": [
+        "street"
+      ]
+    },
+    {
+      "name": "trashcan",
       "suffix": [
         "street"
       ]
