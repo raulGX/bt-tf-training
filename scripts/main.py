@@ -32,10 +32,10 @@ CHECKPOINT_NAME = '/tmp/_retrain_checkpoint'
 
 FLAGS = argparse.Namespace(architecture='mobilenet_1.0_224',
                            bottleneck_dir='/tmp/bottleneck',
-                           eval_step_interval=10,
+                           eval_step_interval=50,
                            final_tensor_name='final_result',
                            flip_left_right=True,
-                           how_many_training_steps=100,
+                           how_many_training_steps=1000,
                            image_dir='download-dataset/downloads/',
                            intermediate_output_graphs_dir='/tmp/intermediate_graph/',
                            intermediate_store_frequency=0,

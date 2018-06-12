@@ -40,14 +40,18 @@ def main():
             absolute_image_paths = fetcher.download(
                 {"keywords": name, "image_directory": name, "limit": count, "format": "jpg"})
     sess = tf.InteractiveSession()
+    idx = 0
     for root, dirs, files in os.walk(os.path.join(os.getcwd(), 'downloads')):
         for file in files:
             currentFile = os.path.join(root, file)
-            # print(currentFile)
             # test image
             if not verify_image(currentFile, sess):
                 print('removed')
                 os.remove(currentFile)
+                continue
+            newFileName = os.path.join(root, str(idx) + ".jpg")
+            os.rename(currentFile, newFileName)
+            idx = idx + 1
 
 
 if __name__ == '__main__':

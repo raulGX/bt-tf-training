@@ -21,6 +21,68 @@
       "suffix": [
         "street"
       ]
+    },
+    {
+      "name": "grass"
+    },
+    {
+      "name": "bench",
+      "suffix": [
+        "street"
+      ]
+    },
+    {
+      "name": "sidewalk"
+    },
+    {
+      "name": "street",
+      "suffix": [
+        "lane"
+      ]
+    },
+    {
+      "name": "sewer",
+      "count": 50,
+      "suffix": [
+        "hole"
+      ]
+    },
+    {
+      "name": "wall"
+    },
+    {
+      "name": "tree"
+    },
+    {
+      "name": "sign",
+      "suffix": [
+        "street"
+      ]
+    },
+    {
+      "name": "pole",
+      "suffix": [
+        "post"
+      ]
+    },
+    {
+      "name": "bush",
+      "count": 50,
+      "suffix": [
+        "fence",
+        "plants"
+      ]
+    },
+    {
+      "name": "fence"
+    },
+    {
+      "name": "gate",
+      "count": 50
+    },
+    {
+      "name": "door",
+      "count": 50
     }
   ]
 }
