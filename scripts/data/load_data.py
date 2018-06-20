@@ -3,6 +3,10 @@ import os
 import scipy
 from scipy import misc
 
+###
+# Contains a hashmap of image vectors
+###
+
 
 def load_data(image_dir):
     if not os.path.exists(image_dir):
@@ -18,6 +22,8 @@ def load_data(image_dir):
             for f in os.listdir(sub_dir):
                 file_path = os.path.join(sub_dir, f)
                 if os.path.isfile(file_path):
+                    if 'DS_Store' in file_path:
+                        continue
                     image = scipy.misc.imread(file_path)
                     image = image.astype(float)
                     image_list.append(image)
