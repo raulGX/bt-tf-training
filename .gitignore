@@ -154,5 +154,6 @@ fabric.properties
 notebooks/data
 notebooks/images
 download-dataset/downloads
+scripts/download-dataset/own_dataset/
 **/*.DS_Store
 tests

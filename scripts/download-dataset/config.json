@@ -32,7 +32,13 @@
       ]
     },
     {
-      "name": "sidewalk"
+      "name": "sidewalk",
+      "suffix": [
+        "concrete",
+        "paved",
+        "texture",
+        "shadow"
+      ]
     },
     {
       "name": "street",
